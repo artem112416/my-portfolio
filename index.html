@@ -1,3 +1,8 @@
+<script>
+    if (localStorage.getItem("auth") !== "true") {
+        window.location.href = "login.html"; // Если нет авторизации, переадресуем на страницу входа
+    }
+</script>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
