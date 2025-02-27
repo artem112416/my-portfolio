@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input { display: block; margin: 10px auto; padding: 8px; }
+        button { padding: 10px; cursor: pointer; }
+        #message { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Вход</h2>
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+    <p id="message"></p>
+
+    <script>
+        function login() {
+            const correctLogin = "admin";  
+            const correctPassword = "1234"; 
+
+            let userLogin = document.getElementById("login").value;
+            let userPassword = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            if (userLogin === correctLogin && userPassword === correctPassword) {
+                localStorage.setItem("auth", "true"); // Сохраняем вход
+                window.location.href = "index.html"; // Перенаправление на сайт
+            } else {
+                message.style.color = "red";
+                message.textContent = "Ошибка! Неверный логин или пароль.";
+            }
+        }
+    </script>
+</body>
+</html>
